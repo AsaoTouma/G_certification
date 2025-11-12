@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { Question, UserAnswer, TestResult } from '../types/question';
-import questionsData from '../data/questions.json';
 import QuestionCard from './QuestionCard';
 import { saveTestResult } from '../utils/storage';
+import { getQuestions, filterQuestionsByYear } from '../utils/questionFetcher';
 
 interface PracticeModeProps {
   category: string;
@@ -18,8 +18,17 @@ export default function PracticeMode({ category, onComplete, onBack }: PracticeM
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
   useEffect(() => {
-    const filtered = (questionsData as Question[]).filter(q => q.category === category);
-    setQuestions(filtered);
+    const loadQuestions = async () => {
+      try {
+        const allQuestions = await getQuestions();
+        const currentYearQuestions = filterQuestionsByYear(allQuestions);
+        const filtered = currentYearQuestions.filter(q => q.category === category);
+        setQuestions(filtered);
+      } catch (error) {
+        console.error('Failed to load questions:', error);
+      }
+    };
+    loadQuestions();
   }, [category]);
 
   if (questions.length === 0) {

@@ -6,6 +6,7 @@ export interface Question {
   correctAnswer: number;
   explanation: string;
   difficulty: 'easy' | 'medium' | 'hard';
+  year: number; // 問題の年度（例: 2025）
 }
 
 export interface Category {

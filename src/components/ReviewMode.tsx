@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { Question, UserAnswer, TestResult } from '../types/question';
-import questionsData from '../data/questions.json';
 import QuestionCard from './QuestionCard';
 import { getTestResults, saveTestResult } from '../utils/storage';
+import { getQuestions, filterQuestionsByYear } from '../utils/questionFetcher';
 
 interface ReviewModeProps {
   onComplete: (result: TestResult) => void;
@@ -17,22 +17,31 @@ export default function ReviewMode({ onComplete, onBack }: ReviewModeProps) {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
   useEffect(() => {
-    const results = getTestResults();
-    const incorrectQuestionIds = new Set<number>();
+    const loadReviewQuestions = async () => {
+      try {
+        const results = getTestResults();
+        const incorrectQuestionIds = new Set<number>();
 
-    results.forEach(result => {
-      result.answers.forEach(answer => {
-        if (!answer.isCorrect) {
-          incorrectQuestionIds.add(answer.questionId);
-        }
-      });
-    });
+        results.forEach(result => {
+          result.answers.forEach(answer => {
+            if (!answer.isCorrect) {
+              incorrectQuestionIds.add(answer.questionId);
+            }
+          });
+        });
 
-    const incorrectQuestions = (questionsData as Question[]).filter(
-      q => incorrectQuestionIds.has(q.id)
-    );
+        const allQuestions = await getQuestions();
+        const currentYearQuestions = filterQuestionsByYear(allQuestions);
+        const incorrectQuestions = currentYearQuestions.filter(
+          q => incorrectQuestionIds.has(q.id)
+        );
 
-    setQuestions(incorrectQuestions);
+        setQuestions(incorrectQuestions);
+      } catch (error) {
+        console.error('Failed to load review questions:', error);
+      }
+    };
+    loadReviewQuestions();
   }, []);
 
   if (questions.length === 0) {

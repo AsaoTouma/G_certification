@@ -11,7 +11,8 @@
     ],
     "correctAnswer": 1,
     "explanation": "1956年のダートマス会議でジョン・マッカーシーらが「人工知能（Artificial Intelligence）」という言葉を初めて使用しました。",
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "year": 2025
   },
   {
     "id": 2,
@@ -25,7 +26,8 @@
     ],
     "correctAnswer": 2,
     "explanation": "第1次AIブーム（1950年代〜1960年代）では、推論と探索による問題解決が中心でした。",
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "year": 2025
   },
   {
     "id": 3,
@@ -39,7 +41,8 @@
     ],
     "correctAnswer": 0,
     "explanation": "教師あり学習は、入力データとそれに対応する正解ラベルのペアから学習する手法です。",
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "year": 2025
   },
   {
     "id": 4,
@@ -53,7 +56,8 @@
     ],
     "correctAnswer": 3,
     "explanation": "学習率の増加は過学習を防ぐ手法ではありません。正則化、ドロップアウト、データ拡張などが有効な手法です。",
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "year": 2025
   },
   {
     "id": 5,
@@ -67,7 +71,8 @@
     ],
     "correctAnswer": 1,
     "explanation": "CNNは畳み込み層を持ち、画像の特徴抽出に優れているため、画像認識分野で広く使用されています。",
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "year": 2025
   },
   {
     "id": 6,
@@ -81,7 +86,8 @@
     ],
     "correctAnswer": 1,
     "explanation": "ReLU（Rectified Linear Unit）は、入力が正の場合はそのまま出力し、負の場合は0を出力する活性化関数です。",
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "year": 2025
   },
   {
     "id": 7,
@@ -95,7 +101,8 @@
     ],
     "correctAnswer": 2,
     "explanation": "Transformerは注意機構（Self-Attention）を主要な仕組みとして使用し、系列データの長距離依存関係を効率的に学習します。",
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "year": 2025
   },
   {
     "id": 8,
@@ -109,7 +116,8 @@
     ],
     "correctAnswer": 2,
     "explanation": "物体検出は画像認識のタスクです。感情分析、機械翻訳、固有表現抽出は自然言語処理のタスクです。",
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "year": 2025
   },
   {
     "id": 9,
@@ -123,7 +131,8 @@
     ],
     "correctAnswer": 2,
     "explanation": "ResNetは画像分類のための畳み込みニューラルネットワークです。GPT、Stable Diffusion、Midjourneyは生成AIのモデルです。",
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "year": 2025
   },
   {
     "id": 10,
@@ -137,7 +146,8 @@
     ],
     "correctAnswer": 3,
     "explanation": "処理速度の向上は技術的な課題であり、倫理的問題ではありません。バイアス、プライバシー、説明可能性は重要な倫理的課題です。",
-    "difficulty": "easy"
+    "difficulty": "easy",
+    "year": 2025
   },
   {
     "id": 11,
@@ -151,7 +161,8 @@
     ],
     "correctAnswer": 1,
     "explanation": "EU AI Actは、AIシステムをリスクレベル別に分類し、高リスクなAIには厳格な規制を適用するリスクベースのアプローチを採用しています。",
-    "difficulty": "hard"
+    "difficulty": "hard",
+    "year": 2025
   },
   {
     "id": 12,
@@ -165,6 +176,7 @@
     ],
     "correctAnswer": 1,
     "explanation": "交差検証は、限られたデータを効率的に使ってモデルの汎化性能を評価するための手法です。",
-    "difficulty": "medium"
+    "difficulty": "medium",
+    "year": 2025
   }
 ]

@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import categories from '../data/categories.json';
+import { getQuestions, getLastUpdateTime, getCurrentYear } from '../utils/questionFetcher';
 
 interface HomeProps {
   onStartPractice: (category: string) => void;
@@ -10,6 +11,28 @@ interface HomeProps {
 
 export default function Home({ onStartPractice, onStartExam, onStartReview, onViewHistory }: HomeProps) {
   const [showCategories, setShowCategories] = useState(false);
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  const [isUpdating, setIsUpdating] = useState(false);
+
+  useEffect(() => {
+    setLastUpdate(getLastUpdateTime());
+    // 起動時に問題を取得（キャッシュがあればキャッシュを使用）
+    getQuestions().catch(console.error);
+  }, []);
+
+  const handleUpdateQuestions = async () => {
+    setIsUpdating(true);
+    try {
+      await getQuestions(true); // 強制更新
+      setLastUpdate(new Date());
+      alert('問題を更新しました！');
+    } catch (error) {
+      console.error('Failed to update questions:', error);
+      alert('問題の更新に失敗しました');
+    } finally {
+      setIsUpdating(false);
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4">
@@ -17,6 +40,21 @@ export default function Home({ onStartPractice, onStartExam, onStartReview, onVi
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-blue-900 mb-2">G検定学習アプリ</h1>
           <p className="text-gray-600">スマホで手軽にG検定対策</p>
+          <div className="mt-4 text-sm text-gray-500">
+            <p>対象年度: {getCurrentYear()}年</p>
+            {lastUpdate && (
+              <p className="mt-1">
+                最終更新: {lastUpdate.toLocaleString('ja-JP')}
+              </p>
+            )}
+          </div>
+          <button
+            onClick={handleUpdateQuestions}
+            disabled={isUpdating}
+            className="mt-3 text-sm bg-green-100 hover:bg-green-200 text-green-800 px-4 py-2 rounded-lg transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isUpdating ? '更新中...' : '問題を更新'}
+          </button>
         </div>
 
         {!showCategories ? (

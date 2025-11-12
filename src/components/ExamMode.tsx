@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import type { Question, UserAnswer, TestResult } from '../types/question';
-import questionsData from '../data/questions.json';
 import QuestionCard from './QuestionCard';
 import { saveTestResult } from '../utils/storage';
+import { getQuestions, filterQuestionsByYear } from '../utils/questionFetcher';
 
 interface ExamModeProps {
   onComplete: (result: TestResult) => void;
@@ -37,12 +37,18 @@ export default function ExamMode({ onComplete, onBack }: ExamModeProps) {
     return () => clearInterval(timer);
   }, [isStarted]);
 
-  const handleStart = () => {
-    const shuffled = [...questionsData as Question[]]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, EXAM_QUESTION_COUNT);
-    setQuestions(shuffled);
-    setIsStarted(true);
+  const handleStart = async () => {
+    try {
+      const allQuestions = await getQuestions();
+      const currentYearQuestions = filterQuestionsByYear(allQuestions);
+      const shuffled = [...currentYearQuestions]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, EXAM_QUESTION_COUNT);
+      setQuestions(shuffled);
+      setIsStarted(true);
+    } catch (error) {
+      console.error('Failed to load questions:', error);
+    }
   };
 
   const handleTimeUp = () => {

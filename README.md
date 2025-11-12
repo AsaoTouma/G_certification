@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# G_certification
-=======
-# React + TypeScript + Vite
-=======
 # G検定学習アプリ
->>>>>>> e08818a (Update README with app documentation)
 
 スマホで手軽にG検定対策ができるPWA（Progressive Web App）学習アプリです。
 
@@ -41,6 +34,12 @@
 - ホーム画面に追加してアプリのように使える
 - インストール不要でブラウザから直接アクセス
 
+### 6. 🆕 自動問題更新機能
+- **1日1回自動更新**: キャッシュを使って効率的に問題を管理
+- **年度フィルタリング**: 常に最新年度の問題のみ表示
+- **外部URL対応**: GitHubやAPIから問題を取得可能
+- **手動更新ボタン**: 必要な時にすぐ最新問題に更新
+
 ## 技術スタック
 
 - **React** - UIライブラリ
@@ -49,6 +48,7 @@
 - **Tailwind CSS** - モバイルファーストなスタイリング
 - **vite-plugin-pwa** - PWA機能
 - **LocalStorage** - 学習データの永続化
+- **Fetch API** - 問題の自動取得
 
 ## セットアップ
 
@@ -77,9 +77,11 @@ npm run preview
 3. 問題に解答して即座にフィードバックを確認
 4. 結果を保存して進捗を追跡
 
-## 問題データの更新
+## 問題データの管理
 
-問題は `src/data/questions.json` で管理されています。最新のG検定シラバスに合わせて問題を追加・更新できます。
+### ローカルで管理する場合
+
+問題は `src/data/questions.json` で管理されています。
 
 ```json
 {
@@ -89,14 +91,74 @@ npm run preview
   "options": ["選択肢1", "選択肢2", "選択肢3", "選択肢4"],
   "correctAnswer": 0,
   "explanation": "解説文",
-  "difficulty": "easy"
+  "difficulty": "easy",
+  "year": 2025
 }
 ```
-<<<<<<< HEAD
->>>>>>> 7462e1c (G検定学習アプリの初期実装)
-=======
+
+### 外部URLから取得する場合
+
+`.env`ファイルを作成して、問題取得用のURLを設定します：
+
+```bash
+# .env ファイル
+VITE_QUESTIONS_URL=https://raw.githubusercontent.com/username/repo/main/questions.json
+```
+
+**推奨設定:**
+1. GitHubに問題専用のリポジトリを作成
+2. `questions.json` をアップロード
+3. raw URLを`.env`に設定
+4. 問題を更新したい時はGitHubにcommit → アプリで「問題を更新」ボタンをクリック
+
+### 問題の年度管理
+
+- 各問題に `year` フィールドが必要です
+- アプリは自動的に現在年度の問題のみを表示します
+- 古い年度の問題は自動的に除外されます
+
+例：
+```json
+{
+  "id": 1,
+  "year": 2025,  // ← 必須
+  ...
+}
+```
+
+## 自動更新の仕組み
+
+1. **初回起動**: 外部URLから問題を取得（設定されている場合）
+2. **キャッシュ**: LocalStorageに24時間保存
+3. **自動更新**: 24時間経過後、次回起動時に自動更新
+4. **手動更新**: ホーム画面の「問題を更新」ボタンでいつでも更新可能
+5. **フォールバック**: 外部URLが使えない場合はローカルの問題を使用
+
+## デプロイ
+
+### Vercel（推奨）
+
+```bash
+# Vercelにデプロイ
+npm install -g vercel
+vercel
+```
+
+### Netlify
+
+```bash
+# ビルドコマンド
+npm run build
+
+# 公開ディレクトリ
+dist
+```
+
+### 環境変数の設定
+
+デプロイ先で環境変数を設定：
+- `VITE_QUESTIONS_URL`: 問題取得用のURL
 
 ## ライセンス
 
 MIT
->>>>>>> e08818a (Update README with app documentation)
