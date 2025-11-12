@@ -1,77 +1,102 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # G_certification
 =======
 # React + TypeScript + Vite
+=======
+# G検定学習アプリ
+>>>>>>> e08818a (Update README with app documentation)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+スマホで手軽にG検定対策ができるPWA（Progressive Web App）学習アプリです。
 
-Currently, two official plugins are available:
+## 主な機能
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. カテゴリー別問題演習
+- 人工知能の基礎
+- 機械学習
+- ディープラーニング
+- AIの活用
+- AIと社会
 
-## React Compiler
+各カテゴリーから問題を選んで学習できます。解答後すぐに正解と解説が表示されます。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. 模擬試験モード
+- 10問出題
+- 制限時間: 10分
+- 全カテゴリーからランダム出題
+- 本番形式での実力チェック
 
-## Expanding the ESLint configuration
+### 3. 復習機能
+- 過去に間違えた問題を自動収集
+- 弱点を重点的に学習
+- 理解度向上をサポート
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 4. 学習履歴
+- テスト結果の自動保存
+- スコアの推移を確認
+- 総テスト回数と平均スコアの表示
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 5. PWA対応
+- オフラインでも使用可能
+- ホーム画面に追加してアプリのように使える
+- インストール不要でブラウザから直接アクセス
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 技術スタック
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **React** - UIライブラリ
+- **TypeScript** - 型安全な開発
+- **Vite** - 高速ビルドツール
+- **Tailwind CSS** - モバイルファーストなスタイリング
+- **vite-plugin-pwa** - PWA機能
+- **LocalStorage** - 学習データの永続化
+
+## セットアップ
+
+```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
+npm run dev
+
+# ビルド
+npm run build
+
+# プレビュー
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 使い方
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. アプリを開くとホーム画面が表示されます
+2. 学習モードを選択：
+   - **問題演習**: カテゴリーを選んで学習
+   - **模擬試験**: 本番形式でテスト
+   - **復習**: 間違えた問題を再学習
+   - **学習履歴**: これまでの成績を確認
+3. 問題に解答して即座にフィードバックを確認
+4. 結果を保存して進捗を追跡
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 問題データの更新
+
+問題は `src/data/questions.json` で管理されています。最新のG検定シラバスに合わせて問題を追加・更新できます。
+
+```json
+{
+  "id": 1,
+  "category": "ai-basics",
+  "question": "問題文",
+  "options": ["選択肢1", "選択肢2", "選択肢3", "選択肢4"],
+  "correctAnswer": 0,
+  "explanation": "解説文",
+  "difficulty": "easy"
+}
 ```
+<<<<<<< HEAD
 >>>>>>> 7462e1c (G検定学習アプリの初期実装)
+=======
+
+## ライセンス
+
+MIT
+>>>>>>> e08818a (Update README with app documentation)
