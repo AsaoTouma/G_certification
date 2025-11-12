@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "category": "ai-basics",
+    "question": "1956年のダートマス会議で初めて提唱された概念は何ですか？",
+    "options": [
+      "機械学習",
+      "人工知能",
+      "ディープラーニング",
+      "ニューラルネットワーク"
+    ],
+    "correctAnswer": 1,
+    "explanation": "1956年のダートマス会議でジョン・マッカーシーらが「人工知能（Artificial Intelligence）」という言葉を初めて使用しました。",
+    "difficulty": "easy"
+  },
+  {
+    "id": 2,
+    "category": "ai-basics",
+    "question": "第1次AIブームの特徴として正しいものはどれですか？",
+    "options": [
+      "ディープラーニングの発展",
+      "エキスパートシステムの実用化",
+      "推論と探索による問題解決",
+      "ビッグデータの活用"
+    ],
+    "correctAnswer": 2,
+    "explanation": "第1次AIブーム（1950年代〜1960年代）では、推論と探索による問題解決が中心でした。",
+    "difficulty": "medium"
+  },
+  {
+    "id": 3,
+    "category": "machine-learning",
+    "question": "教師あり学習の説明として正しいものはどれですか？",
+    "options": [
+      "ラベル付きデータから学習する",
+      "報酬を最大化するように学習する",
+      "データの構造を発見する",
+      "人間のフィードバックなしで学習する"
+    ],
+    "correctAnswer": 0,
+    "explanation": "教師あり学習は、入力データとそれに対応する正解ラベルのペアから学習する手法です。",
+    "difficulty": "easy"
+  },
+  {
+    "id": 4,
+    "category": "machine-learning",
+    "question": "過学習（オーバーフィッティング）を防ぐための手法でないものはどれですか？",
+    "options": [
+      "正則化",
+      "ドロップアウト",
+      "データ拡張",
+      "学習率の増加"
+    ],
+    "correctAnswer": 3,
+    "explanation": "学習率の増加は過学習を防ぐ手法ではありません。正則化、ドロップアウト、データ拡張などが有効な手法です。",
+    "difficulty": "medium"
+  },
+  {
+    "id": 5,
+    "category": "deep-learning",
+    "question": "CNN（畳み込みニューラルネットワーク）が主に使用される分野はどれですか？",
+    "options": [
+      "時系列データ分析",
+      "画像認識",
+      "テキスト生成",
+      "強化学習"
+    ],
+    "correctAnswer": 1,
+    "explanation": "CNNは畳み込み層を持ち、画像の特徴抽出に優れているため、画像認識分野で広く使用されています。",
+    "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "category": "deep-learning",
+    "question": "活性化関数ReLUの特徴として正しいものはどれですか？",
+    "options": [
+      "出力が-1から1の範囲に収まる",
+      "負の値を0にする",
+      "すべての値を正規化する",
+      "勾配が常に1である"
+    ],
+    "correctAnswer": 1,
+    "explanation": "ReLU（Rectified Linear Unit）は、入力が正の場合はそのまま出力し、負の場合は0を出力する活性化関数です。",
+    "difficulty": "medium"
+  },
+  {
+    "id": 7,
+    "category": "deep-learning",
+    "question": "Transformerアーキテクチャの主要な仕組みは何ですか？",
+    "options": [
+      "畳み込み層",
+      "再帰的な構造",
+      "注意機構（Attention）",
+      "プーリング層"
+    ],
+    "correctAnswer": 2,
+    "explanation": "Transformerは注意機構（Self-Attention）を主要な仕組みとして使用し、系列データの長距離依存関係を効率的に学習します。",
+    "difficulty": "hard"
+  },
+  {
+    "id": 8,
+    "category": "ai-application",
+    "question": "自然言語処理（NLP）のタスクでないものはどれですか？",
+    "options": [
+      "感情分析",
+      "機械翻訳",
+      "物体検出",
+      "固有表現抽出"
+    ],
+    "correctAnswer": 2,
+    "explanation": "物体検出は画像認識のタスクです。感情分析、機械翻訳、固有表現抽出は自然言語処理のタスクです。",
+    "difficulty": "easy"
+  },
+  {
+    "id": 9,
+    "category": "ai-application",
+    "question": "生成AIの代表的なモデルでないものはどれですか？",
+    "options": [
+      "GPT",
+      "Stable Diffusion",
+      "ResNet",
+      "Midjourney"
+    ],
+    "correctAnswer": 2,
+    "explanation": "ResNetは画像分類のための畳み込みニューラルネットワークです。GPT、Stable Diffusion、Midjourneyは生成AIのモデルです。",
+    "difficulty": "medium"
+  },
+  {
+    "id": 10,
+    "category": "ai-ethics",
+    "question": "AIの倫理的問題として適切でないものはどれですか？",
+    "options": [
+      "バイアスと公平性",
+      "プライバシー保護",
+      "説明可能性",
+      "処理速度の向上"
+    ],
+    "correctAnswer": 3,
+    "explanation": "処理速度の向上は技術的な課題であり、倫理的問題ではありません。バイアス、プライバシー、説明可能性は重要な倫理的課題です。",
+    "difficulty": "easy"
+  },
+  {
+    "id": 11,
+    "category": "ai-ethics",
+    "question": "EUが制定したAI規制法（AI Act）の目的として正しいものはどれですか？",
+    "options": [
+      "AIの開発を禁止する",
+      "リスクベースでAIを規制する",
+      "AI企業の独占を防ぐ",
+      "AI技術の輸出を制限する"
+    ],
+    "correctAnswer": 1,
+    "explanation": "EU AI Actは、AIシステムをリスクレベル別に分類し、高リスクなAIには厳格な規制を適用するリスクベースのアプローチを採用しています。",
+    "difficulty": "hard"
+  },
+  {
+    "id": 12,
+    "category": "machine-learning",
+    "question": "交差検証（Cross-Validation）の目的は何ですか？",
+    "options": [
+      "学習時間を短縮する",
+      "モデルの汎化性能を評価する",
+      "特徴量を増やす",
+      "データを増やす"
+    ],
+    "correctAnswer": 1,
+    "explanation": "交差検証は、限られたデータを効率的に使ってモデルの汎化性能を評価するための手法です。",
+    "difficulty": "medium"
+  }
+]

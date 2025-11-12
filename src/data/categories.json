@@ -1,0 +1,27 @@
+[
+  {
+    "id": "ai-basics",
+    "name": "人工知能の基礎",
+    "description": "AIの歴史、定義、種類などの基本概念"
+  },
+  {
+    "id": "machine-learning",
+    "name": "機械学習",
+    "description": "機械学習の手法、アルゴリズム、評価指標"
+  },
+  {
+    "id": "deep-learning",
+    "name": "ディープラーニング",
+    "description": "ニューラルネットワーク、CNN、RNNなど"
+  },
+  {
+    "id": "ai-application",
+    "name": "AIの活用",
+    "description": "画像認識、自然言語処理、ビジネス応用"
+  },
+  {
+    "id": "ai-ethics",
+    "name": "AIと社会",
+    "description": "倫理、法律、セキュリティ、社会的影響"
+  }
+]
